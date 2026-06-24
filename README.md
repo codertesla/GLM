@@ -52,7 +52,7 @@ The following table aggregates the technical and economic metrics of official ch
 | **Baseten** | Dedicated Instance / PTU | [Website](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | Custom PTU Enterprise Billing | **>280 tok/s (Fastest overall)** |
 | **Alibaba Cloud (DashScope)** | Cloud Provider | [Website](https://www.aliyun.com/) | `glm-5-2` | 1,048,576 | Input: ¥8.00 / Output: ¥28.00 *(TokenPlan credits apply)* | N/A (Enterprise concurrency SLA) |
 | **Cloudflare Workers AI** | Edge Serverless | [Website](https://cloudflare.com/) | `@cf/zai-org/glm-5.2` | **262,144 (Restricted)** | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | N/A (Dynamic edge load) |
-| **OpenRouter** | Aggregation Gateway | [Website](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | Dynamic Blended down to $0.95 / $3.00 | Depends on chosen backend |
+| **OpenRouter** | Aggregation Gateway | [Website](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | Weighted Avg Input: ~$0.50 / Output: ~$4.22<br>*(After prompt caching)* | Depends on chosen backend |
 | **ZenMux.ai** | Aggregation Gateway | [Website](https://zenmux.ai/) | `z-ai/glm-5.2` | 1,048,576 | List Price: $1.40 / $4.40 *(Subscription tiers available)* | Depends on chosen backend |
 | **Vercel AI Gateway** | Developer Gateway | [Website](https://vercel.com/) | `zai/glm-5.2` | 1,048,576 | Passthrough billing of backend | Depends on chosen backend |
 | **Neuralwatt** | Energy-Metered Platform | [Reddit Community](https://www.reddit.com/r/ZaiGLM/) | `zai-org/GLM-5.2` | 1,048,576 | GPU Energy Metered: **$0.06 ~ $0.12** | ~60 - 100 tok/s |
@@ -84,7 +84,7 @@ Baseten utilizes dedicated NVIDIA Blackwell GPU clusters to achieve the fastest 
 * **OpenCode Go Subscription**: A low-cost developer bundle subscription costing $5 for the first month, then $10/month. Instead of raw call counts, it operates on a rolling dollar-equivalent credit system ($12 per 5 hours, $30 per week, and $60 per month). It provides a unified API key to access GLM-5.2 alongside other open-weight models, offering excellent value for active agent development.
 
 ### Aggregation Gateways & Multi-Path Failover
-* **OpenRouter Multi-Provider Failover**: GLM-5.2's launch triggered huge traffic spikes, causing official endpoint throttling. OpenRouter mitigates this by automatically failing over in milliseconds across DeepInfra, Novita, Together, and official servers based on real-time latency, price, and uptime statistics (GLM-5.2 uptime averaging ~95.12%).
+* **OpenRouter Multi-Provider Routing & Caching**: OpenRouter serves as a dynamic aggregator routing to 8 underlying providers (including NovitaAI, Z.ai, StreamLake, Fireworks, Friendli, GMICloud, Together, and AtlasCloud). Because it supports robust prompt caching, the rolling 30-day weighted average effective price drops to **$0.500 per 1M input tokens** and **$4.22 per 1M output tokens** (saving 60-80% on repeat context input), making it one of the most cost-effective global routing methods. It also provides millisecond-level failover during peak traffic periods (GLM-5.2 upstream uptime average is ~95.12%).
 * **ZenMux.ai "Hallucination & Latency Insurance"**: An integrated probe monitors upstream API performance. If it detects severe latency spikes, upstream silent downgrades, or invalid JSON structures, ZenMux credits the user's account automatically as compensation.
 
 ---

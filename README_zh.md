@@ -52,7 +52,7 @@
 | **Baseten** | 异构推理/预留部署 | [官网](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | 企业独占 PTU 定制计费 | **超 280 tok/s (全网最速)** |
 | **阿里云百炼 (DashScope)** | 云厂商 Serverless | [官网](https://www.aliyun.com/) | `glm-5-2` | 1,048,576 | 输入: ¥8.00 / 输出: ¥28.00 *(可使用 TokenPlan 算力包抵扣)* | N/A (企业级高并发保障) |
 | **Cloudflare Workers AI** | 边缘托管 Serverless | [官网](https://cloudflare.com/) | `@cf/zai-org/glm-5.2` | **262,144 (受限)** | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | N/A (边缘节点动态负载) |
-| **OpenRouter** | API 聚合路由网关 | [官网](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | 综合混计低至 $0.95 / $3.00 | 视动态选定的具体通道而定 |
+| **OpenRouter** | API 聚合路由网关 | [官网](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | 加权均价 输入: ~$0.50 / 输出: ~$4.22<br>*(含 Prompt 缓存优化)* | 视动态选定的具体通道而定 |
 | **ZenMux.ai** | API 聚合网关 | [官网](https://zenmux.ai/) | `z-ai/glm-5.2` | 1,048,576 | 列表价: $1.40 / $4.40 *(支持月度套餐)* | 视动态选定的具体通道而定 |
 | **Vercel AI Gateway** | 企业开发网关 | [官网](https://vercel.com/) | `zai/glm-5.2` | 1,048,576 | 依底层上游实际提供商透传 | 依实际底层通道时延而定 |
 | **Neuralwatt** | 功耗计量专属平台 | [Reddit 社区](https://www.reddit.com/r/ZaiGLM/) | `zai-org/GLM-5.2` | 1,048,576 | 实际能耗换算折合 **$0.06 ~ $0.12** | ~60 - 100 tok/s |
@@ -84,7 +84,7 @@ Baseten 通过部署最新的 NVIDIA Blackwell GPU 架构，构建了目前全�
 * **OpenCode Go 订阅**: 专为开发者设计的低成本大模型订阅套餐，首月 $5，后续 $10/月。与传统的按量计费不同，它采用美元等值额度的滚动更新系统（5小时滚动限制 $12，周滚动限制 $30，月滚动限制 $60）。订阅用户只需绑定一个 API 密钥，即可在此限额内访问 GLM-5.2 及其他主流开源大模型，对于高频个人 Agent 开发具有极高的性价比。
 
 ### 聚合网关与多路容灾
-* **OpenRouter 多路自适应路由**: GLM-5.2 在发布初期由于流量极大，官方接口在高峰期经常触发严重的限流。OpenRouter 可在毫秒级内根据 DeepInfra、Novita、Together 等提供商的延迟、价格及实时在线率（Uptime Stats，GLM-5.2 均线约为 95.12%）自动实现请求的故障转移（Failover）。
+* **OpenRouter 动态聚合与缓存路由**: OpenRouter 作为聚合层，背后自动路由至 8 家底层提供商（包括 NovitaAI、Z.ai、StreamLake、Fireworks、Friendli、GMICloud、Together、AtlasCloud）。得益于支持对重复上下文进行强大的 Prompt 缓存（Prompt Caching），其最近 30 天的滚动实际加权均价（Weighted Average Effective Price）降至 **输入约 $0.500 / 百万 Tokens**，**输出约 $4.22 / 百万 Tokens**（相比普通 List 价能节省 60-80% 的输入成本）。同时，它能在官方上游链路拥堵或中断时，在毫秒级内自动向其他底层提供商进行故障转移（GLM-5.2 整体平均在线率约 95.12%）。
 * **ZenMux.ai 的“幻觉与时延险”**: ZenMux 内置了实时评测探针。如果检测到上游提供商服务降级、严重延迟抖动（Latency Spike）或者输出了不符合预定 JSON 格式的乱码，系统会自动对调用用户的账户转入等值点数（Credits）作为故障赔付。
 
 ---
