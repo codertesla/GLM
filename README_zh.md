@@ -1,6 +1,6 @@
 # 🚀 Awesome GLM-5.2 API Providers & Self-Hosting Guide
 
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d730ac038d13026978657a6b49be4d17d0e5ff84/badge.svg)](https://github.com/sindresorhus/awesome)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Model](https://img.shields.io/badge/Model-GLM--5.2%20%2F%20Z.ai-blue)](https://bigmodel.cn/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -11,7 +11,7 @@
 本仓库致力于收集、整理和持续更新全网所有支持 **GLM-5.2**（智谱 AI / Z.ai 旗舰开源大模型）的 API 服务提供商、云端加速方案、聚合网关以及本地自托管（Self-Hosting）部署指南。欢迎提交 PR 补充或修正信息！
 
 > [!NOTE]
-> **GLM-5.21 (开源版本于 2026 年 6 月中旬发布)** 是全球首款完全脱离英伟达（Nvidia）硬件依赖、基于华为昇腾（Huawei Ascend）计算芯片训练完成的超大规模混合专家（MoE）旗舰模型。其总参数量约 744B~753B，单 Token 激活参数约 40B，支持百万级（1,048,576 字节）超长上下文。
+> **GLM-5.2 (开源版本于 2026 年 6 月中旬发布)** 是全球首款完全脱离英伟达（Nvidia）硬件依赖、基于华为昇腾（Huawei Ascend）计算芯片训练完成的超大规模混合专家（MoE）旗舰模型。其总参数量约 744B~753B，单 Token 激活参数约 40B，支持百万级（1,048,576 字节）超长上下文。
 
 ---
 
