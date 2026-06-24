@@ -57,6 +57,7 @@
 | **ZenMux.ai** | API 聚合网关 | [官网](https://zenmux.ai/) | `z-ai/glm-5.2` | 1,048,576 | 列表价: $1.40 / $4.40 *(支持月度套餐)* | 视动态选定的具体通道而定 |
 | **Vercel AI Gateway** | 企业开发网关 | [官网](https://vercel.com/) | `zai/glm-5.2` | 1,048,576 | 依底层上游实际提供商透传 | 依实际底层通道时延而定 |
 | **Neuralwatt** | 功耗计量专属平台 | [Reddit 社区](https://www.reddit.com/r/ZaiGLM/) | `zai-org/GLM-5.2` | 1,048,576 | 实际能耗换算折合 **$0.06 ~ $0.12** | ~60 - 100 tok/s |
+| **OpenCode Go** | 订阅制服务 | [官网](https://opencode.ai/) | `opencode/glm-5.2` | 1,048,576 | 首月 $5，后续 $10/月<br>*(滚动额度: $12/5小时, $30/周, $60/月)* | 视底层通道实际流速而定 |
 
 > [!WARNING]
 > 部分第三方平台（如 **Together AI** 和 **Cloudflare Workers AI**）对 GLM-5.2 的最大上下文窗口做了物理限制（目前为 262,144 Tokens）。若需要处理 1M 上下文长任务，请选择官方平台或其他未作硬性限制的 Serverless 平台。
@@ -82,6 +83,7 @@ Baseten 通过部署最新的 NVIDIA Blackwell GPU 架构，构建了目前全�
 * **国家超算互联网**: 为扶持本土 OpenClaw 等智能体生态，向实名用户赠送 1000 万免费 Tokens，后续续购价格低至 **0.1 元/百万 Tokens**。
 * **Fireworks AI Fire Pass (通票订阅)**: 提供类似于 Netflix 模式的订阅服务（通常为 $10/月），激活后可使用专用 Fire Pass 密钥在 Cline、Claude Code、Kilo Code 等端侧工具中无限次调用 GLM-5.2 模型（限个人开发非商用高并发）。
 * **Neuralwatt (功耗计费模式)**: 抛弃按 Token 计费的传统，采用物理 GPU 能耗换算计费。在算力闲置的低谷期使用 GLM-5.2 的 `Max Thinking` 模式，折合每百万输出 Tokens 成本仅为 **$0.06 ~ $0.12**。
+* **OpenCode Go 订阅**: 专为开发者设计的低成本大模型订阅套餐，首月 $5，后续 $10/月。与传统的按量计费不同，它采用美元等值额度的滚动更新系统（5小时滚动限制 $12，周滚动限制 $30，月滚动限制 $60）。订阅用户只需绑定一个 API 密钥，即可在此限额内访问 GLM-5.2 及其他主流开源大模型，对于高频个人 Agent 开发具有极高的性价比。
 
 ### 聚合网关与多路容灾
 * **OpenRouter 多路自适应路由**: GLM-5.2 在发布初期由于流量极大，官方接口在高峰期经常触发严重的限流。OpenRouter 可在毫秒级内根据 DeepInfra、Novita、Together 等提供商的延迟、价格及实时在线率（Uptime Stats，GLM-5.2 均线约为 95.12%）自动实现请求的故障转移（Failover）。

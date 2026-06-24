@@ -57,6 +57,7 @@ The following table aggregates the technical and economic metrics of official ch
 | **ZenMux.ai** | Aggregation Gateway | [Website](https://zenmux.ai/) | `z-ai/glm-5.2` | 1,048,576 | List Price: $1.40 / $4.40 *(Subscription tiers available)* | Depends on chosen backend |
 | **Vercel AI Gateway** | Developer Gateway | [Website](https://vercel.com/) | `zai/glm-5.2` | 1,048,576 | Passthrough billing of backend | Depends on chosen backend |
 | **Neuralwatt** | Energy-Metered Platform | [Reddit Community](https://www.reddit.com/r/ZaiGLM/) | `zai-org/GLM-5.2` | 1,048,576 | GPU Energy Metered: **$0.06 ~ $0.12** | ~60 - 100 tok/s |
+| **OpenCode Go** | Subscription Service | [Website](https://opencode.ai/) | `opencode/glm-5.2` | 1,048,576 | $5 first month, then $10/mo<br>*(Rolling credits: $12/5h, $30/wk, $60/mo)* | Depends on backend provider |
 
 > [!WARNING]
 > Some third-party platforms (like **Together AI** and **Cloudflare Workers AI**) physically limit the maximum context window of GLM-5.2 to **262,144 tokens**. For 1M long-context tasks, choose the official platform or other Serverless providers without context window caps.
@@ -82,6 +83,7 @@ Baseten utilizes dedicated NVIDIA Blackwell GPU clusters to achieve the fastest 
 * **SCNet (国家超算互联网)**: Built to support domestic agent frameworks, SCNet offers a signup gift of 10M free tokens and a renewal price of **¥0.10 / Million tokens**.
 * **Fireworks AI Fire Pass**: A subscription model ($10/month) that unlocks a developer key for GLM-5.2. Personal projects using Claude Code, Cline, or Kilo Code can call the model with zero per-token cost (restricted to non-production usage).
 * **Neuralwatt (Energy-based Billing)**: Users pay based on real GPU power consumption. Running GLM-5.2 in `Max Thinking` mode during off-peak night hours yields an effective pricing of **$0.06 ~ $0.12 per million output tokens**.
+* **OpenCode Go Subscription**: A low-cost developer bundle subscription costing $5 for the first month, then $10/month. Instead of raw call counts, it operates on a rolling dollar-equivalent credit system ($12 per 5 hours, $30 per week, and $60 per month). It provides a unified API key to access GLM-5.2 alongside other open-weight models, offering excellent value for active agent development.
 
 ### Aggregation Gateways & Multi-Path Failover
 * **OpenRouter Multi-Provider Failover**: GLM-5.2's launch triggered huge traffic spikes, causing official endpoint throttling. OpenRouter mitigates this by automatically failing over in milliseconds across DeepInfra, Novita, Together, and official servers based on real-time latency, price, and uptime statistics (GLM-5.2 uptime averaging ~95.12%).
