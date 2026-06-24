@@ -1,6 +1,6 @@
 # 🚀 Awesome GLM-5.2 API Providers & Self-Hosting Guide
 
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d730ac038d13026978657a6b49be4d17d0e5ff84/badge.svg)](https://github.com/sindresorhus/awesome)
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Model](https://img.shields.io/badge/Model-GLM--5.2%20%2F%20Z.ai-blue)](https://bigmodel.cn/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -11,7 +11,7 @@ English | [简体中文](README_zh.md)
 This repository is dedicated to collecting, organizing, and continuously updating the list of all API providers, cloud acceleration solutions, aggregation gateways, and local self-hosting deployment guides for **GLM-5.2** (Z.ai / Zhipu AI's flagship open-weight LLM). Contributions via PRs are welcome!
 
 > [!NOTE]
-> **GLM-5.21 (Open-weight version released in mid-June 2026)** is the world's first frontier MoE model trained completely without Nvidia hardware dependencies, built entirely on Huawei Ascend hardware. It features a total parameter count of 744B~753B, dynamically activating 40B parameters per token, and supports up to 1M (1,048,576 tokens) context window.
+> **GLM-5.2 (Open-weight version released in mid-June 2026)** is the world's first frontier MoE model trained completely without Nvidia hardware dependencies, built entirely on Huawei Ascend hardware. It features a total parameter count of 744B~753B, dynamically activating 40B parameters per token, and supports up to 1M (1,048,576 tokens) context window.
 
 ---
 
