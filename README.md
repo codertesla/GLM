@@ -51,7 +51,6 @@ The following table aggregates the technical and economic metrics of official ch
 | **Novita AI** | Serverless Provider | [Website](https://novita.ai/) | `zai-org/glm-5.2` | 1,048,576 | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | ~18 tok/s |
 | **Baseten** | Dedicated Instance / PTU | [Website](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | Custom PTU Enterprise Billing | **>280 tok/s (Fastest overall)** |
 | **Alibaba Cloud (DashScope)** | Cloud Provider | [Website](https://www.aliyun.com/) | `glm-5-2` | 1,048,576 | Input: ¥8.00 / Output: ¥28.00 *(TokenPlan credits apply)* | N/A (Enterprise concurrency SLA) |
-| **SCNet (国家超算互联网)** | Infrastructure Platform | [Website](https://www.scnet.cn/) | `GLM-5.2` | 1,048,576 | Renewal: **¥0.10**<br>*(10M free tokens for signups)* | Extremely High |
 | **Cloudflare Workers AI** | Edge Serverless | [Website](https://cloudflare.com/) | `@cf/zai-org/glm-5.2` | **262,144 (Restricted)** | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | N/A (Dynamic edge load) |
 | **OpenRouter** | Aggregation Gateway | [Website](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | Dynamic Blended down to $0.95 / $3.00 | Depends on chosen backend |
 | **ZenMux.ai** | Aggregation Gateway | [Website](https://zenmux.ai/) | `z-ai/glm-5.2` | 1,048,576 | List Price: $1.40 / $4.40 *(Subscription tiers available)* | Depends on chosen backend |
@@ -80,7 +79,6 @@ Baseten utilizes dedicated NVIDIA Blackwell GPU clusters to achieve the fastest 
 * **Cache-Sensitive Routing**: Tracks and preserves KV Caches across interactive turns. In long-horizon coding tasks (e.g., using Claude Code), this avoids repeated calculation of up to 1MB prompts.
 
 ### Extreme Cost Efficiency
-* **SCNet (国家超算互联网)**: Built to support domestic agent frameworks, SCNet offers a signup gift of 10M free tokens and a renewal price of **¥0.10 / Million tokens**.
 * **Fireworks AI Fire Pass**: A subscription model ($10/month) that unlocks a developer key for GLM-5.2. Personal projects using Claude Code, Cline, or Kilo Code can call the model with zero per-token cost (restricted to non-production usage).
 * **Neuralwatt (Energy-based Billing)**: Users pay based on real GPU power consumption. Running GLM-5.2 in `Max Thinking` mode during off-peak night hours yields an effective pricing of **$0.06 ~ $0.12 per million output tokens**.
 * **OpenCode Go Subscription**: A low-cost developer bundle subscription costing $5 for the first month, then $10/month. Instead of raw call counts, it operates on a rolling dollar-equivalent credit system ($12 per 5 hours, $30 per week, and $60 per month). It provides a unified API key to access GLM-5.2 alongside other open-weight models, offering excellent value for active agent development.
@@ -165,7 +163,7 @@ When serving GLM-5.2 via ROCm + vLLM on AMD Instinct MI300X (192 GiB) nodes, wor
 
 | Team Profile / Scenario | Resource Budget | Recommended Path | Decision Rationale |
 | :--- | :--- | :--- | :--- |
-| **Independent Dev / MVP Startup** | Extremely low budget, validating MVPs | **SCNet (CN) / DeepInfra (US)** | Start with **10M free tokens** on SCNet, followed by its ultra-cheap **¥0.10 / M tokens** pricing (or DeepInfra for global deployments) to minimize early capital expenses. |
+| **Independent Dev / MVP Startup** | Extremely low budget, validating MVPs | **DeepInfra (US) / SiliconFlow (CN)** | Utilize pay-per-token options on DeepInfra ($0.95/1M input) or SiliconFlow (¥6.00/1M input) to start MVP testing with minimal early capital expenses. |
 | **Active Developer / Vibe Coding** | Continuous daily calls, deep Cursor/Claude Code binding | **Z.ai Official Coding Plan** | The flat-rate monthly subscriptions (**Pro at ¥149/mo** or **Max at ¥469/mo**) shield developers from heavy billing run-ups caused by continuous codebase scanning. |
 | **High Concurrency SaaS Platform** | Large scale production workloads, highly latency-sensitive | **Baseten Dedicated Blackwell** | **Latency defines retention**: Baseten's Blackwell native FP4 path outputs at **280+ TPS**, eliminating UI blocking during multi-step Agent calls. |
 | **Regulated/Financial/Auditing Corp** | Hard data-compliance guidelines, strict physical privacy | **RTX 4090 Cluster (with ada_dsa patch)** | By bypassing export-restricted H100s, enterprises can build secure, air-gapped FP8 instances on affordable, consumer-grade hardware. |
