@@ -1,4 +1,4 @@
-# 🚀 Awesome GLM-5.2 API Providers & Self-Hosting Guide
+# 🚀 GLM-5.2 全网 API 接入与本地自托管部署指南
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Model](https://img.shields.io/badge/Model-GLM--5.2%20%2F%20Z.ai-blue)](https://bigmodel.cn/)
