@@ -38,18 +38,18 @@
 
 ## 📊 全网 API 接入平台对照表
 
-下表汇集了官方、主流第三方 Serverless 推理平台以及聚合网关的 GLM-5.2 接入核心数据（数据截至 **2026年6月24日**）：
+下表汇集了官方、主流第三方 Serverless 推理平台以及聚合网关的 GLM-5.2 接入核心数据（数据截至 **2026年6月25日**）：
 
 | 接入平台 | 平台属性 | 官网与文档地址 | Model ID / 接入标识符 | 上下文上限 | 官方定价 / 计费模式 (每 1M Tokens) | 典型 TPS / 性能实测 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **智谱官方 (BigModel.cn)** | 官方中文平台 | [官网](https://bigmodel.cn/) | `glm-5-2` | 1,048,576 | 输入: ¥8.00 / 输出: ¥28.00<br>缓存命中: ¥2.00 | ~19.71 tok/s (常规流速) |
 | **Z.ai 官方国际平台** | 官方全球接入 | [官网](https://z.ai/) / [文档](https://docs.z.ai/) | `glm-5.2` | 1,048,576 | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | ~106 tok/s (高峰流速) |
-| **DeepInfra** | 第三方 Serverless | [官网](https://deepinfra.com/) | `zai-org/GLM-5.2` | 1,048,576 | 输入: $0.95 / 输出: $3.00<br>缓存命中: $0.18 | ~32 - 46 tok/s (性价比最高) |
-| **SiliconFlow (硅基流动)** | 第三方 Serverless | [官网](https://siliconflow.cn/) | `zai-org/GLM-5.2` | 1,048,576 | 输入: ¥6.00 / 输出: ¥28.00<br>缓存缓存: ¥2.00 | ~36 tok/s (国内超低延迟) |
-| **Fireworks AI** | 第三方 Serverless | [官网](https://fireworks.ai/) | `accounts/fireworks/models/glm-5p2` | 1,040,000 | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 *(支持 Fire Pass 订阅)* | ~51 tok/s (高并发稳定性) |
-| **Together AI** | 第三方 Serverless | [官网](https://www.together.ai/) | `zai-org/GLM-5.2` | **262,144 (受限)** | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | ~62 tok/s (FP4 量化) |
-| **Novita AI** | 第三方 Serverless | [官网](https://novita.ai/) | `zai-org/glm-5.2` | 1,048,576 | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | ~18 tok/s |
-| **Baseten** | 异构推理/预留部署 | [官网](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | 企业独占 PTU 定制计费 | **超 280 tok/s (全网最速)** |
+| **DeepInfra** | 第三方 Serverless | [官网](https://deepinfra.com/) | `zai-org/GLM-5.2` | 1,048,576 | 输入: $0.95 / 输出: $3.00<br>缓存命中: $0.18 | ~60 tok/s (性价比最高) |
+| **SiliconFlow (硅基流动)** | 第三方 Serverless | [官网](https://siliconflow.cn/) | `zai-org/GLM-5.2` | 1,048,576 | 输入: ¥6.00 / 输出: ¥28.00<br>缓存缓存: ¥2.00 | ~41 tok/s (国内超低延迟) |
+| **Fireworks AI** | 第三方 Serverless | [官网](https://fireworks.ai/) | `accounts/fireworks/models/glm-5p2` | 1,040,000 | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 *(支持 Fire Pass 订阅)* | **超 318 tok/s (全网最速)** |
+| **Together AI** | 第三方 Serverless | [官网](https://www.together.ai/) | `zai-org/GLM-5.2` | **262,144 (受限)** | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | ~115 tok/s (FP4 量化) |
+| **Novita AI** | 第三方 Serverless | [官网](https://novita.ai/) | `zai-org/glm-5.2` | 1,048,576 | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | ~48 tok/s |
+| **Baseten** | 异构推理/预留部署 | [官网](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | 企业独占 PTU 定制计费 | ~242 tok/s (专属实例) |
 | **阿里云百炼 (DashScope)** | 云厂商 Serverless | [官网](https://www.aliyun.com/) | `glm-5-2` | 1,048,576 | 输入: ¥8.00 / 输出: ¥28.00 *(可使用 TokenPlan 算力包抵扣)* | N/A (企业级高并发保障) |
 | **Cloudflare Workers AI** | 边缘托管 Serverless | [官网](https://cloudflare.com/) | `@cf/zai-org/glm-5.2` | **262,144 (受限)** | 输入: $1.40 / 输出: $4.40<br>缓存命中: $0.26 | N/A (边缘节点动态负载) |
 | **OpenRouter** | API 聚合路由网关 | [官网](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | 加权均价 输入: ~$0.50 / 输出: ~$4.22<br>*(含 Prompt 缓存优化)* | 视动态选定的具体通道而定 |
@@ -73,7 +73,7 @@
 * **阿里云百炼 (DashScope)**: 阿里云百炼提供了 **TokenPlan (企业套餐) 节省计划**，大企业采购统一算力包后，额度可直接跨模型在通义千问 Qwen3 Max 与 GLM-5.2 之间无缝共享和抵扣。
 
 ### 极致吞吐优化 (Baseten Blackwell)
-Baseten 通过部署最新的 NVIDIA Blackwell GPU 架构，构建了目前全球推理速度最快的 GLM-5.2 专属 API，流式输出实测突破 **280 TPS**。
+Baseten 通过部署最新的 NVIDIA Blackwell GPU 架构，构建了高性能的 GLM-5.2 专属 API，流式输出实测达 **242 TPS**（Fireworks AI 目前以 **318 TPS** 领跑全网 Serverless 吞吐性能）。
 * **Blackwell NVFP4 动态量化**: 硬件原生级支持全新的 4-bit 浮点（FP4）精度，对 GLM-5.2 的 750B 权重进行了无损压缩，推理速度飞跃的同时保证了代码生成质量不降级。
 * **Dynamo 预填充-解码分离 (PD Disaggregation)**: 将消耗算力的大序列 Prefill（预填充 KV Cache）和 Decode（流式 Token 解码）计算解耦至不同的 Blackwell 物理节点运行，彻底消除了高并发下的算力排队瓶颈。
 * **Cache 敏感路由**: 精准追踪并复用前序交互留存的上下文缓存，对于长周期交互智能体（如 Claude Code），避免了高达 1MB 级 Prompt 数据的反复重算。
@@ -165,7 +165,7 @@ python -m sglang.launch_server \
 | :--- | :--- | :--- | :--- |
 | **独立开发者 / 个人初创** | 预算极其有限，以快速验证 MVP 为主 | **DeepInfra (国外) / 硅基流动 (国内)** | 使用 DeepInfra（$0.95/M输入）或硅基流动（¥6.00/M输入）的按量付费服务，用最低的初期投入快速跑通 MVP 验证。 |
 | **高频开发者 / Vibe Coding 玩家** | 每天极高频调用，需要深度嵌入 Cursor / Claude Code | **Z.ai 官方 Coding Plan 包月订阅** | 购买 **Pro (¥149/月) 或 Max (¥469/月) 订阅套餐**。包月订阅模式从根本上隔绝了因为高频代码库扫描/代码重写导致 API 额度超标的财务风险。 |
-| **高并发、高实时性商业 SaaS** | 生产级负载，对延迟和流式吐出吞吐高度敏感 | **Baseten 专属 Blackwell 托管** | **效率决定体验**：Baseten 专属 Blackwell 能够压榨出 **280+ TPS** 极端性能，极大地缩短了用户使用复杂智能体时的页面白屏阻塞，显著优化商业 ROI。 |
+| **高并发、高实时性商业 SaaS** | 生产级负载，对延迟和流式吐出吞吐高度敏感 | **Baseten 专属 Blackwell 托管** | **效率决定体验**：Baseten 专属 Blackwell 能够压榨出 **242 TPS** 性能（配合如 Fireworks AI 等 Serverless 提供商可达 **318 TPS**），极大地缩短了用户使用复杂智能体时的页面白屏阻塞，显著优化商业 ROI。 |
 | **涉密、金融/安全审计等红线企业** | 数据严禁出境，要求高并发与物理隐私权 | **RTX 4090 集群 (打上 ada_dsa 补丁)** | 绕过昂贵且受到出口禁运限制的 Hopper (H100) 芯片，直接在容易采购且极其廉价的 4090 显卡集群上拉起无损的 FP8 旗舰模型，实现完全物理隔离下的代码审计与工程分析。 |
 
 ---

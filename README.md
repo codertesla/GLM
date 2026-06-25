@@ -38,18 +38,18 @@ This repository is dedicated to collecting, organizing, and continuously updatin
 
 ## 📊 API Providers Matrix
 
-The following table aggregates the technical and economic metrics of official channels, third-party Serverless platforms, and API gateways for GLM-5.2 (Data verified as of **June 24, 2026**):
+The following table aggregates the technical and economic metrics of official channels, third-party Serverless platforms, and API gateways for GLM-5.2 (Data verified as of **June 25, 2026**):
 
 | Provider | Classification | Website & Docs | Model ID / Identifier | Context Limit | Pricing / Billing Model (per 1M Tokens) | Typical TPS / Performance |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Z.ai Global (Official)** | Official Global Portal | [Website](https://z.ai/) / [Docs](https://docs.z.ai/) | `glm-5.2` | 1,048,576 | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | ~106 tok/s (Peak flow speed) |
 | **BigModel.cn (Official)** | Official China Portal | [Website](https://bigmodel.cn/) | `glm-5-2` | 1,048,576 | Input: ¥8.00 / Output: ¥28.00<br>Cache Hit: ¥2.00 | ~19.71 tok/s (Standard speed) |
-| **DeepInfra** | Serverless Provider | [Website](https://deepinfra.com/) | `zai-org/GLM-5.2` | 1,048,576 | Input: $0.95 / Output: $3.00<br>Cache Hit: $0.18 | ~32 - 46 tok/s (Best value) |
-| **SiliconFlow** | Serverless Provider | [Website](https://siliconflow.cn/) | `zai-org/GLM-5.2` | 1,048,576 | Input: ¥6.00 / Output: ¥28.00<br>Cache Hit: ¥2.00 | ~36 tok/s (Low latency in China) |
-| **Fireworks AI** | Serverless Provider | [Website](https://fireworks.ai/) | `accounts/fireworks/models/glm-5p2` | 1,040,000 | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 *(Fire Pass available)* | ~51 tok/s (High concurrency) |
-| **Together AI** | Serverless Provider | [Website](https://www.together.ai/) | `zai-org/GLM-5.2` | **262,144 (Restricted)** | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | ~62 tok/s (FP4 Quantized) |
-| **Novita AI** | Serverless Provider | [Website](https://novita.ai/) | `zai-org/glm-5.2` | 1,048,576 | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | ~18 tok/s |
-| **Baseten** | Dedicated Instance / PTU | [Website](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | Custom PTU Enterprise Billing | **>280 tok/s (Fastest overall)** |
+| **DeepInfra** | Serverless Provider | [Website](https://deepinfra.com/) | `zai-org/GLM-5.2` | 1,048,576 | Input: $0.95 / Output: $3.00<br>Cache Hit: $0.18 | ~60 tok/s (Best value) |
+| **SiliconFlow** | Serverless Provider | [Website](https://siliconflow.cn/) | `zai-org/GLM-5.2` | 1,048,576 | Input: ¥6.00 / Output: ¥28.00<br>Cache Hit: ¥2.00 | ~41 tok/s (Low latency in China) |
+| **Fireworks AI** | Serverless Provider | [Website](https://fireworks.ai/) | `accounts/fireworks/models/glm-5p2` | 1,040,000 | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 *(Fire Pass available)* | **~318 tok/s (Fastest overall)** |
+| **Together AI** | Serverless Provider | [Website](https://www.together.ai/) | `zai-org/GLM-5.2` | **262,144 (Restricted)** | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | ~115 tok/s (FP4 Quantized) |
+| **Novita AI** | Serverless Provider | [Website](https://novita.ai/) | `zai-org/glm-5.2` | 1,048,576 | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | ~48 tok/s |
+| **Baseten** | Dedicated Instance / PTU | [Website](https://www.baseten.co/) | `zai-org/GLM-5.2` | 1,048,576 | Custom PTU Enterprise Billing | ~242 tok/s (Dedicated instance) |
 | **Alibaba Cloud (DashScope)** | Cloud Provider | [Website](https://www.aliyun.com/) | `glm-5-2` | 1,048,576 | Input: ¥8.00 / Output: ¥28.00 *(TokenPlan credits apply)* | N/A (Enterprise concurrency SLA) |
 | **Cloudflare Workers AI** | Edge Serverless | [Website](https://cloudflare.com/) | `@cf/zai-org/glm-5.2` | **262,144 (Restricted)** | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | N/A (Dynamic edge load) |
 | **OpenRouter** | Aggregation Gateway | [Website](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | Weighted Avg Input: ~$0.50 / Output: ~$4.22<br>*(After prompt caching)* | Depends on chosen backend |
@@ -73,7 +73,7 @@ API providers have heavily optimized the GLM-5.2 infrastructure layer, offering 
 * **Alibaba Cloud DashScope**: DashScope offers **TokenPlan and Savings Plan** models. Unified enterprise credits can be shared across models, letting enterprises seamlessly balance Qwen3 Max and GLM-5.2 calls.
 
 ### Extreme Throughput (Baseten Blackwell)
-Baseten utilizes dedicated NVIDIA Blackwell GPU clusters to achieve the fastest GLM-5.2 API worldwide, clocking in at over **280 TPS** for streaming output.
+Baseten utilizes dedicated NVIDIA Blackwell GPU clusters to achieve high-throughput GLM-5.2 API performance, clocking in at **242 TPS** for streaming output (Fireworks AI currently leads overall serverless throughput at **318 TPS**).
 * **Blackwell NVFP4 Native Quantization**: Using native 4-bit floating-point (FP4) hardware execution on Blackwell GPUs to compress the 750B model weights without degrading coding generation quality.
 * **Dynamo Prefill-Decode Disaggregation (PD separation)**: Decouples the computationally heavy Prompt Prefill (establishing KV Cache) from the streaming Decode phase by running them on distinct physical Blackwell nodes.
 * **Cache-Sensitive Routing**: Tracks and preserves KV Caches across interactive turns. In long-horizon coding tasks (e.g., using Claude Code), this avoids repeated calculation of up to 1MB prompts.
@@ -165,7 +165,7 @@ When serving GLM-5.2 via ROCm + vLLM on AMD Instinct MI300X (192 GiB) nodes, wor
 | :--- | :--- | :--- | :--- |
 | **Independent Dev / MVP Startup** | Extremely low budget, validating MVPs | **DeepInfra (US) / SiliconFlow (CN)** | Utilize pay-per-token options on DeepInfra ($0.95/1M input) or SiliconFlow (¥6.00/1M input) to start MVP testing with minimal early capital expenses. |
 | **Active Developer / Vibe Coding** | Continuous daily calls, deep Cursor/Claude Code binding | **Z.ai Official Coding Plan** | The flat-rate monthly subscriptions (**Pro at ¥149/mo** or **Max at ¥469/mo**) shield developers from heavy billing run-ups caused by continuous codebase scanning. |
-| **High Concurrency SaaS Platform** | Large scale production workloads, highly latency-sensitive | **Baseten Dedicated Blackwell** | **Latency defines retention**: Baseten's Blackwell native FP4 path outputs at **280+ TPS**, eliminating UI blocking during multi-step Agent calls. |
+| **High Concurrency SaaS Platform** | Large scale production workloads, highly latency-sensitive | **Baseten Dedicated Blackwell** | **Latency defines retention**: Baseten's Blackwell native FP4 path outputs at **242 TPS** (with serverless providers like Fireworks AI reaching **318 TPS**), eliminating UI blocking during multi-step Agent calls. |
 | **Regulated/Financial/Auditing Corp** | Hard data-compliance guidelines, strict physical privacy | **RTX 4090 Cluster (with ada_dsa patch)** | By bypassing export-restricted H100s, enterprises can build secure, air-gapped FP8 instances on affordable, consumer-grade hardware. |
 
 ---
