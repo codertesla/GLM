@@ -54,6 +54,7 @@ The following table aggregates the technical and economic metrics of official ch
 | **Cloudflare Workers AI** | Edge Serverless | [Website](https://cloudflare.com/) | `@cf/zai-org/glm-5.2` | **262,144 (Restricted)** | Input: $1.40 / Output: $4.40<br>Cache Hit: $0.26 | N/A (Dynamic edge load) |
 | **OpenRouter** | Aggregation Gateway | [Website](https://openrouter.ai/) | `z-ai/glm-5.2` | 1,048,576 | Weighted Avg Input: ~$0.50 / Output: ~$4.22<br>*(After prompt caching)* | Depends on chosen backend |
 | **ZenMux.ai** | Aggregation Gateway | [Website](https://zenmux.ai/) | `z-ai/glm-5.2` | 1,048,576 | List Price: $1.40 / $4.40 *(Subscription tiers available)* | Depends on chosen backend |
+| **Vynex API** | Aggregation Gateway | [Website](https://llm-api.vynexcloud.com/) | `GLM-5.2` | 1,048,576 | Volume: Input: $0.91 / Output: $2.86 (65% off official)<br>Standard: $1.12 / $3.52 (80% off)<br>**Multi-model (GPT+Claude+Gemini) · USDT · Wire transfer** | N/A |
 | **Vercel AI Gateway** | Developer Gateway | [Website](https://vercel.com/) | `zai/glm-5.2` | 1,048,576 | Passthrough billing of backend | Depends on chosen backend |
 | **Neuralwatt** | Energy-Metered Platform | [Reddit Community](https://www.reddit.com/r/ZaiGLM/) | `zai-org/GLM-5.2` | 1,048,576 | GPU Energy Metered: **$0.06 ~ $0.12** | ~60 - 100 tok/s |
 | **OpenCode Go** | Subscription Service | [Website](https://opencode.ai/) | `opencode/glm-5.2` | 1,048,576 | $5 first month, then $10/mo<br>*(Rolling credits: $12/5h, $30/wk, $60/mo)* | Depends on backend provider |
@@ -85,6 +86,7 @@ Baseten utilizes dedicated NVIDIA Blackwell GPU clusters to achieve high-through
 
 ### Aggregation Gateways & Multi-Path Failover
 * **OpenRouter Multi-Provider Routing & Caching**: OpenRouter serves as a dynamic aggregator routing to 8 underlying providers (including NovitaAI, Z.ai, StreamLake, Fireworks, Friendli, GMICloud, Together, and AtlasCloud). Because it supports robust prompt caching, the rolling 30-day weighted average effective price drops to **$0.500 per 1M input tokens** and **$4.22 per 1M output tokens** (saving 60-80% on repeat context input), making it one of the most cost-effective global routing methods. It also provides millisecond-level failover during peak traffic periods (GLM-5.2 upstream uptime average is ~95.12%).
+* **Vynex API — Multi-Model Gateway with USDT & Wire Transfer**: Vynex is a Hong Kong-based aggregation gateway offering GLM-5.2 alongside GPT-5.2, Claude, and Gemini from a single OpenAI-compatible endpoint. Volume pricing reaches **$0.91/1M input and $2.86/1M output** (65% of Z.ai official). Key differentiators: supports **USDT crypto payments and B2B wire transfer** (with invoice) — ideal for users in regions (Russia, MENA, SEA) where credit card access to OpenRouter/DeepInfra is limited. HK registered company.
 * **ZenMux.ai "Hallucination & Latency Insurance"**: An integrated probe monitors upstream API performance. If it detects severe latency spikes, upstream silent downgrades, or invalid JSON structures, ZenMux credits the user's account automatically as compensation.
 
 ---
